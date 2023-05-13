@@ -1,11 +1,15 @@
-import { IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonContent, IonHeader, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
+import { useState } from 'react';
 import './Home.css';
 import Echo from '../plugins/Echo';
 
 const Home: React.FC = () => {
   const onButtonTapped = () => {
-    console.log('Button tapped')
+    setTapTextCount(tapTextCount + 1)
+    setTapText(`Button tapped ${tapTextCount}`)
   }
+  const [tapText, setTapText] = useState('')
+  const [tapTextCount, setTapTextCount] = useState(0)
 
   const onEchoButtonTapped = async () => {
     const { value } = await Echo.echo({ value: 'Tapped from JS' })
@@ -31,6 +35,7 @@ const Home: React.FC = () => {
         <IonButton onClick={() => onEchoButtonTapped()}>
           Echo
         </IonButton>
+        <IonText>{tapText}</IonText>
       </IonContent>
     </IonPage>
   );
