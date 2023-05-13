@@ -1,10 +1,15 @@
 import { IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
+import Echo from '../plugins/Echo';
 
 const Home: React.FC = () => {
   const onButtonTapped = () => {
     console.log('Button tapped')
+  }
+
+  const onEchoButtonTapped = async () => {
+    const { value } = await Echo.echo({ value: 'Tapped from JS' })
+    console.log('Response from native:', value)
   }
   
   return (
@@ -22,6 +27,9 @@ const Home: React.FC = () => {
         </IonHeader>
         <IonButton onClick={() => onButtonTapped()}>
           Tap me
+        </IonButton>
+        <IonButton onClick={() => onEchoButtonTapped()}>
+          Echo
         </IonButton>
       </IonContent>
     </IonPage>
