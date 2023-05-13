@@ -6,17 +6,43 @@
 //
 
 import Capacitor
+import Contacts
 
 @objc(ContactsPlugin)
 public class ContactsPlugin: CAPPlugin {
 	@objc func getContacts(_ call: CAPPluginCall) {
-		call.resolve(
-			[
-				"results": [
-					"Contact1",
-					"Contact2"
+		do {
+			call.resolve(
+				[
+					"results": try getContacts()
 				]
-			]
+			)
+		} catch {
+			call.reject(error.localizedDescription)
+		}
+	}
+
+	private func getContacts() throws -> [Any] {
+		let store = CNContactStore()
+		var contacts = [Any]()
+
+		let request = CNContactFetchRequest(
+			keysToFetch:
+				[
+					CNContactGivenNameKey,
+					CNContactFamilyNameKey
+				] as [CNKeyDescriptor]
 		)
+
+		try store.enumerateContacts(with: request) { contact, _ in
+			contacts.append(
+				[
+					"firstName": contact.givenName,
+					"lastName": contact.familyName
+				]
+			)
+		}
+
+		return contacts
 	}
 }

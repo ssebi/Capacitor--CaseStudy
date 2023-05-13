@@ -3,6 +3,7 @@ import { useState } from 'react';
 import './Home.css';
 import Echo from '../plugins/Echo';
 import Contacts from '../plugins/Contacts';
+import { Contact } from '../types/Contact';
 
 const Home: React.FC = () => {
   const onButtonTapped = () => {
@@ -26,13 +27,16 @@ const Home: React.FC = () => {
 
   const onGetContactsButtonTapped = async () => {
     try {
-      const results = (await Contacts.getContacts()).results.join(' ')
-      setResponse(results)
+      const results = (await Contacts.getContacts()).results
+      setResponse("Success")
+      setContacts(results)
     } catch (error) {
       setResponse(`${error}`)
+      setContacts([])
     }
   }
   const [response, setResponse] = useState('')
+  const [contacts, setContacts] = useState<Contact[]>([])
 
   return (
     <IonPage>
@@ -78,10 +82,13 @@ const Home: React.FC = () => {
             <IonButton onClick={() => onGetContactsButtonTapped()}>
               Get Contacts
             </IonButton>
-          </IonItem>
-          <IonItem>
             <IonText>{response}</IonText>
           </IonItem>
+          <IonList>
+            {contacts.map(contact => (
+              <IonItem key={contact}>{contact.firstName}, {contact.lastName}</IonItem>
+            ))}
+          </IonList>
 
         </IonList>
       </IonContent>
