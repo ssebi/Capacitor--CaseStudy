@@ -39,6 +39,7 @@ const Home: React.FC = () => {
         
         <IonList>
         
+          {/* This is just a simple button that's incremented every time it's tapped */}
           <IonItem>
             <IonButton onClick={() => onButtonTapped()}>
               Tap me
@@ -46,6 +47,7 @@ const Home: React.FC = () => {
             <IonText>{tapText}</IonText>
           </IonItem>
           
+          {/* This is a button that calls the echo function on the native plugin */}
           <IonItem>
             <IonButton onClick={() => onEchoButtonTapped()}>
               Echo
