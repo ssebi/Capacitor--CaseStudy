@@ -2,6 +2,7 @@ import { IonButton, IonContent, IonHeader, IonItem, IonList, IonPage, IonText, I
 import { useState } from 'react';
 import './Home.css';
 import Echo from '../plugins/Echo';
+import Contacts from '../plugins/Contacts';
 
 const Home: React.FC = () => {
   const onButtonTapped = () => {
@@ -22,6 +23,16 @@ const Home: React.FC = () => {
   }
   const [echoText, setEchoText] = useState('')
   const [text, setText] = useState('')
+
+  const onGetContactsButtonTapped = async () => {
+    try {
+      const results = (await Contacts.getContacts()).results.join(' ')
+      setResponse(results)
+    } catch (error) {
+      setResponse(`${error}`)
+    }
+  }
+  const [response, setResponse] = useState('')
 
   return (
     <IonPage>
@@ -61,7 +72,17 @@ const Home: React.FC = () => {
           <IonItem>
             <IonText>{echoText}</IonText>
           </IonItem>
-        
+
+          {/* This is a button that calls the get contacts native function */}
+          <IonItem>
+            <IonButton onClick={() => onGetContactsButtonTapped()}>
+              Get Contacts
+            </IonButton>
+          </IonItem>
+          <IonItem>
+            <IonText>{response}</IonText>
+          </IonItem>
+
         </IonList>
       </IonContent>
     </IonPage>

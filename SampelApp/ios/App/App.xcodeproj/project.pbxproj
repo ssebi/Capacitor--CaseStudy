@@ -17,6 +17,8 @@
 		A084ECDBA7D38E1E42DFC39D /* Pods_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF277DCFFFF123FFC6DF26C7 /* Pods_App.framework */; };
 		C687F95B2A0F5CA6002B173F /* EchoPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C687F95A2A0F5CA6002B173F /* EchoPlugin.swift */; };
 		C687F95D2A0F5CCE002B173F /* EchoPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C687F95C2A0F5CCE002B173F /* EchoPlugin.m */; };
+		C687F9602A0F84C1002B173F /* ContactsPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C687F95F2A0F84C1002B173F /* ContactsPlugin.swift */; };
+		C687F9622A0F8555002B173F /* ContactsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C687F9612A0F8555002B173F /* ContactsPlugin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		AF51FD2D460BCFE21FA515B2 /* Pods-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.release.xcconfig"; path = "Pods/Target Support Files/Pods-App/Pods-App.release.xcconfig"; sourceTree = "<group>"; };
 		C687F95A2A0F5CA6002B173F /* EchoPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoPlugin.swift; sourceTree = "<group>"; };
 		C687F95C2A0F5CCE002B173F /* EchoPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EchoPlugin.m; sourceTree = "<group>"; };
+		C687F95F2A0F84C1002B173F /* ContactsPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsPlugin.swift; sourceTree = "<group>"; };
+		C687F9612A0F8555002B173F /* ContactsPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactsPlugin.m; sourceTree = "<group>"; };
 		FC68EB0AF532CFC21C3344DD /* Pods-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-App/Pods-App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +108,8 @@
 			children = (
 				C687F95A2A0F5CA6002B173F /* EchoPlugin.swift */,
 				C687F95C2A0F5CCE002B173F /* EchoPlugin.m */,
+				C687F95F2A0F84C1002B173F /* ContactsPlugin.swift */,
+				C687F9612A0F8555002B173F /* ContactsPlugin.m */,
 			);
 			path = Plugins;
 			sourceTree = "<group>";
@@ -222,6 +228,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				504EC3081FED79650016851F /* AppDelegate.swift in Sources */,
+				C687F9622A0F8555002B173F /* ContactsPlugin.m in Sources */,
+				C687F9602A0F84C1002B173F /* ContactsPlugin.swift in Sources */,
 				C687F95B2A0F5CA6002B173F /* EchoPlugin.swift in Sources */,
 				C687F95D2A0F5CCE002B173F /* EchoPlugin.m in Sources */,
 			);
