@@ -1,4 +1,5 @@
 import { registerPlugin } from '@capacitor/core';
+import { Contact } from '../types/Contact';
 
 export interface ContactsPlugin {
     getContacts(): Promise<{ results: Contact[] }>;

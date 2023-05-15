@@ -16,14 +16,14 @@ const Home: React.FC = () => {
   const onEchoButtonTapped = async () => {
     setText('')
     try {
-      const { value } = await Echo.echo({ value: text })
+      const { value } = await Echo.echo({ value: text ?? '' })
       setEchoText(`Response from native: ${value}`)
     } catch (error) {
       setEchoText(`Error: ${error}`)
     }
   }
   const [echoText, setEchoText] = useState('')
-  const [text, setText] = useState('')
+  const [text, setText] = useState<string | null | undefined>('')
 
   const onGetContactsButtonTapped = async () => {
     try {
@@ -86,7 +86,7 @@ const Home: React.FC = () => {
           </IonItem>
           <IonList>
             {contacts.map(contact => (
-              <IonItem key={contact}>{contact.firstName}, {contact.lastName}</IonItem>
+              <IonItem>{contact.firstName}, {contact.lastName}</IonItem>
             ))}
           </IonList>
 
