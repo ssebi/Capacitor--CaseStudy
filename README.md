@@ -10,6 +10,8 @@ There's an additional button that only sends a message to the native code and th
 
 The first button can even be ignored, it only counts the taps
 
+Also, sorry for the name typo 😅
+
 <img width="588" alt="Screenshot 2023-05-13 at 17 17 39" src="https://github.com/ssebi/Capacitor--CaseStudy/assets/9042985/ee6b44bd-7dd8-46c4-852a-5931044e55dd">
 
 # Run instructions
@@ -17,14 +19,24 @@ After cloning the app run the following commands:
 
 ```ruby
 cd SampelApp
+```
 
+```ruby
 npm install
+```
 
+```ruby
 npm run build
+```
 
+```ruby
 ionic capacitor copy ios
+```
 
+```ruby
 ionic capacitor update
+```
 
+```ruby
 ionic capacitor run ios
 ```
